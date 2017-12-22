@@ -17,6 +17,7 @@ int main() {
 		hFind = FindFirstFile(L"*", &fileinfo);
 		do {
     	count++; // некоторые файлы не считаются??
+		if(count>2)
     	wprintf(L"%s\n", fileinfo.cFileName);
 
     	// ...
@@ -24,7 +25,7 @@ int main() {
 	} while (FindNextFile(hFind, &fileinfo) != 0);
         //dfs();                     	// запустить обход в глубину
    		
-    	wprintf(L"File count = %d\n", count);
+    	wprintf(L"File count = %d\n", count-2);
     	return 0;
 }
 
